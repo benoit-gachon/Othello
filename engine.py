@@ -13,3 +13,4 @@ class Joueur:
 def increment(direction, position):
     if direction ==0:
         position=
+
