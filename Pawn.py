@@ -14,9 +14,19 @@ class Pawn:
         else:
             self.couleur='N'
 
+    def test_case(self,tuple):
+        self.tuple=tuple
+        if self.position==():
+            return False
+        else:
+            return True  
+
 pion=Pawn('noir')
 pion.position([1,2,3],(1,2,3))
-print(pion.couleur)
+tuple=(1,1)
+print(pion.test_case(tuple))
+
+
 
 
 
