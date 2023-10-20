@@ -1,4 +1,3 @@
-
 class Joueur:
     def __init__(self, joeur_blanc, joueur_noir):
         self.joueur_blanc=joeur_blanc

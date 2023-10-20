@@ -1,7 +1,8 @@
 class Pawn:
-    def __init__(self,couleur):
+    def __init__(self,couleur: str, coord: tuple):
        self.couleur=couleur
-       
+       self.coord = coord
+
     def position(self,liste_ligne,liste_colonne):
         for i in range(0, len(liste_ligne)):
             for j in range(0, len(liste_colonne)):
