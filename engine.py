@@ -6,7 +6,7 @@ class Joueur:
 #7 0 1
 #6 . 2
 #5 4 3 
-def increment(direction, position):
+def increment(direction, position:tuple):
     if direction ==0:
         return(position[0]-1,position[1])
     if direction == 1:
@@ -24,3 +24,7 @@ def increment(direction, position):
     if direction ==7:
         return(position[0]-1,position[1]-1)
 
+# if __name__ == '__main__':
+
+pos = increment(2, (2,2))
+print(pos)
