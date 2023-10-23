@@ -24,7 +24,9 @@ def increment(direction, position:tuple):
     if direction ==7:
         return(position[0]-1,position[1]-1)
 
-# if __name__ == '__main__':
 
-pos = increment(2, (2,2))
-print(pos)
+
+# if __name__ == '__main__':
+# pos = increment(2, (2,2))
+# print(pos)
+

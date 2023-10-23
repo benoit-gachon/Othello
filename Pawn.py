@@ -16,12 +16,6 @@ class Pawn:
         else:
             self.couleur='N'
 
-    def test_case(self,tuple):
-        self.tuple=tuple
-        if self.position==():
-            return False
-        else:
-            return True  
 
 
 
