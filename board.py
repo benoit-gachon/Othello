@@ -2,7 +2,7 @@
 ###       Board        ###
 ##########################
 
-from pawn import Pawn
+from Pawn import Pawn
 class Board: 
     def __init__(self): 
         self.board = []
@@ -51,3 +51,9 @@ class Board:
         elif pawn.couleur == 'B':
             self.board[pawn.coord[0]][pawn.coord[1]] = 'O'
         self.display_board()
+
+    def test(self,X:int,Y:int):
+        if self.board[X][Y] == " ":
+            return True
+        else:
+            return False
