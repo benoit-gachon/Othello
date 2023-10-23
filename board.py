@@ -60,38 +60,95 @@ class Board:
             return False
 
 
-############################################################
-##     Test pour créer méthode qui retourne les pions     ##
-############################################################
+############################################
+##     Méthode qui retourne les pions     ##
+############################################
 
     def retourner_pions(self, pawn:Pawn):
         directions = [(0, 1), (1, 0), (0, -1), (-1, 0), (1, 1), (1, -1), (-1, 1), (-1, -1)]
         if pawn.couleur == "N":
             opponent = "O"
             player = "X"
-        else:
+        elif pawn.couleur == "B":
             opponent = "X" 
             player = "O"
         pions_retournes = []
 
         for dr, dc in directions:
-            r = pawn.coord[1]
-            c = pawn.coord[0]
+            r = pawn.coord[0]
+            c = pawn.coord[1]
             r += dr
             c += dc
-            pions_a_retourner = []  # Liste pour stocker les pions de l'adversaire à retourner
+            self.pions_a_retourner = []  # Liste pour stocker les pions de l'adversaire à retourner
 
             while 0 <= r < len(self.board) and 0 <= c < len(self.board[0]) and self.board[r][c] == opponent:
-                pions_a_retourner.append((r, c))
+                self.pions_a_retourner.append((r, c))
                 r += dr
                 c += dc
 
             if 0 <= r < len(self.board) and 0 <= c < len(self.board[0]) and self.board[r][c] == player:
-                pions_retournes.extend(pions_a_retourner)
+                pions_retournes.extend(self.pions_a_retourner)
 
         for r, c in pions_retournes:
             self.board[r][c] = player
 
-        return self.board    
+#compteur de point 
+    def compteur(self):
+        nombre_X = 0
+        nombre_O = 0
+        for ligne in self.board :
+            nombre_X += ligne.count("X")
+            nombre_O += ligne.count("O")
+        print("+"*27 + "\n" + "|" + "Score du joueur noir = " + str(nombre_X) + "\n" + "|" + "Score du joueur blanc = " + str(nombre_O) + "\n" + "+"*27)
 
-# if __name__ == '__main__':
+
+##############################################################
+# Chantier en cours pour tester si le coup est valide ou non #
+##############################################################
+
+#Chantier 1
+# #test bis, est ce que je peux placer mon pion à cet endroit 
+#     def test_bis(self):
+#         if self.pions_a_retourner:
+#             return True
+#         else:
+#             return False
+
+# Chantier 2
+    # def retourner_pions(self, pawn:Pawn):
+    #         directions = [(0, 1), (1, 0), (0, -1), (-1, 0), (1, 1), (1, -1), (-1, 1), (-1, -1)]
+    #         if pawn.couleur == "N":
+    #             opponent = "O"
+    #             player = "X"
+    #         elif pawn.couleur == "B":
+    #             opponent = "X" 
+    #             player = "O"
+
+    #         for dr, dc in directions:
+    #             r = pawn.coord[0]
+    #             c = pawn.coord[1]
+    #             r += dr
+    #             c += dc
+    #             self.pions_a_retourner = []  # Liste pour stocker les pions de l'adversaire à retourner
+
+    #             while 0 <= r < len(self.board) and 0 <= c < len(self.board[0]) and self.board[r][c] == opponent:
+    #                 self.pions_a_retourner.append((r, c))
+    #                 r += dr
+    #                 c += dc
+            
+    #         if self.pions_a_retourner:
+    #             return True
+    #         else: 
+    #             return False
+
+
+    # def reel_return(self):
+    #     pions_retournes = []
+    #     player = "O"
+    #     player = "X"
+
+    #     if 0 <= r < len(self.board) and 0 <= c < len(self.board[0]) and self.board[r][c] == player:
+    #             pions_retournes.extend(self.pions_a_retourner)
+
+    #     for r, c in pions_retournes:
+    #         self.board[r][c] = player
